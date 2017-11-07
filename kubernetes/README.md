@@ -55,7 +55,7 @@ NOTE: If you are interested in an automated instatiation of AWS instances, pleas
             
           Make sure you utilize the internal hostname of the AWS instances while copying the SSH keys
     
-          Eg. ssh-copy-id root@ip-172-31-14-25
+          Eg. ssh-copy-id root@ip-10-10-10-1
     
             (ansible-node)# ssh-copy-id root@<k8s-master>
             (ansible-node)# ssh-copy-id root@<k8s-node>
@@ -93,11 +93,11 @@ NOTE: If you are interested in an automated instatiation of AWS instances, pleas
  
             (k8s-master)# kubectl get pods -n kube-system -o wide | grep contrail
                
-               contrail-agent-nmtvz                      1/1       Running             0          14m       172.31.0.65    ip-172-31-0-65
-               contrail-analytics-44gpk                  1/1       Running             0          15m       172.31.14.25   ip-172-31-14-25
-               contrail-analyticsdb-brrk6                1/1       Running             0          15m       172.31.14.25   ip-172-31-14-25
-               contrail-controller-x6nxv                 1/1       Running             0          15m       172.31.14.25   ip-172-31-14-25
-               contrail-kube-manager-xxv2h               1/1       Running             0          15m       172.31.14.25   ip-172-31-14-25
+               contrail-agent-nmtvz                      1/1       Running             0          14m       10.10.10.2    ip-10-10-10-2
+               contrail-analytics-44gpk                  1/1       Running             0          15m       10.10.10.1   ip-10-10-10-1
+               contrail-analyticsdb-brrk6                1/1       Running             0          15m       10.10.10.1   ip-10-10-10-1
+               contrail-controller-x6nxv                 1/1       Running             0          15m       10.10.10.1   ip-10-10-10-1
+               contrail-kube-manager-xxv2h               1/1       Running             0          15m       10.10.10.1   ip-10-10-10-1
 
             
     * Verify that OpenContrail services are all up
