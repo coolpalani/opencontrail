@@ -2,7 +2,7 @@
 
 ### LAUNCH INSTANCES ON AWS (Manual)
 
-NOTE: If you are interested in an automated instatiation of AWS instances, please follow this play
+NOTE: If you are interested in an automated instatiation of AWS instances, please follow this [play](https://github.com/savithruml/ansible-labs/tree/master/aws)
 
     * Ansible Instance  (x1)
     
