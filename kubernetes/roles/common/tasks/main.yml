@@ -1,0 +1,65 @@
+---
+# This playbook deploys the Kubernetes cluster with Contrail CNI
+
+# Author: SAVITHRU LOKANATH
+# Contact: SAVITHRU AT ICLOUD DOT COM
+
+- name: Update packages
+  apt: update_cache=yes
+  tags: common
+
+- name: Install base packages
+  apt: name={{item}} state=present
+  with_items:
+    - ntp
+    - ntpdate
+    - bridge-utils
+    - cgroupfs-mount
+    - containerd
+    - runc
+    - ubuntu-fan
+    - apt-transport-https
+    - docker.io
+  tags: common
+
+- name: Stop ntp service
+  service:
+    name: ntp
+    state: stopped
+    enabled: yes
+  tags: common
+
+- name: Sync ntp service
+  shell: ntpdate -s time.nist.gov
+  tags: common
+
+- name: Start the ntp service
+  service:
+    name: ntp
+    state: started
+    enabled: yes
+  tags: common
+
+- name: Add apt signing key
+  apt_key:
+    url: https://packages.cloud.google.com/apt/doc/apt-key.gpg
+    state: present
+  tags: common
+
+- name: Populate sources file
+  copy:
+    content: deb http://apt.kubernetes.io/ kubernetes-xenial main
+    dest: /etc/apt/sources.list.d/kubernetes.list
+  tags: common
+
+- name: Update packages
+  apt: update_cache=yes
+  tags: common
+
+- name: Install kubernetes packages
+  apt: name={{item}} state=present
+  with_items:
+    - kubelet
+    - kubeadm
+    - kubectl
+  tags: common
