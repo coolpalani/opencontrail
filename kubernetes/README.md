@@ -80,3 +80,15 @@ NOTE: If you are interested in an automated instatiation of AWS instances, pleas
  
             (ansible-node)# cd /root/opencontrail/kubernetes
             (ansible-node)# ansible-playbook -i hosts site.yml
+            
+            
+ ## VERIFY           
+ 
+            (k8s-master)# kubectl get pods -n kube-system -o wide | grep contrail
+               
+               contrail-agent-nmtvz                      1/1       Running             0          14m       172.31.0.65    ip-172-31-0-65
+               contrail-analytics-44gpk                  1/1       Running             0          15m       172.31.14.25   ip-172-31-14-25
+               contrail-analyticsdb-brrk6                1/1       Running             0          15m       172.31.14.25   ip-172-31-14-25
+               contrail-controller-x6nxv                 1/1       Running             0          15m       172.31.14.25   ip-172-31-14-25
+               contrail-kube-manager-xxv2h               1/1       Running             0          15m       172.31.14.25   ip-172-31-14-25
+
