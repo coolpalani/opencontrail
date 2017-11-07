@@ -33,6 +33,7 @@ NOTE: If you are interested in an automated instatiation of AWS instances, pleas
 
     NOTE: Make sure to launch the instances in the same subnet & remember to select the auto-assign public IP option
 
+
 ### PREPARE THE NODES FOR DEPLOYMENT
 
     * Run these commands on all nodes. This will enable root access with password
@@ -41,10 +42,12 @@ NOTE: If you are interested in an automated instatiation of AWS instances, pleas
             (all-nodes)# passwd
             (all-nodes)# sed -i -e 's/PermitRootLogin prohibit-password/PermitRootLogin yes/g' -e 's/PasswordAuthentication no/PasswordAuthentication yes/g' /etc/ssh/sshd_config 
             (all-nodes)# service sshd restart
-            
+          
+          
     * Install dependencies
     
             (all-nodes)# apt-get update -y && apt-get install python -y
+    
     
     * Logout & login as root user. Enable passwordless SSH for k8s master & node
    
@@ -60,6 +63,7 @@ NOTE: If you are interested in an automated instatiation of AWS instances, pleas
             (ansible-node)# cd /root
             (ansible-node)# git clone https://github.com/savithuml/opencontrail
       
+      
     * Populate hosts file with k8s-master & k8s-node info. Remember to use the private IP address of the instance
     
             (ansible-node)# cat /root/opencontrail/kubernetes/hosts
@@ -69,6 +73,7 @@ NOTE: If you are interested in an automated instatiation of AWS instances, pleas
 
                   [nodes]
                   10.10.10.2
+                  
                   
      * Install ansible
      
@@ -100,6 +105,7 @@ NOTE: If you are interested in an automated instatiation of AWS instances, pleas
             (k8s-master)# kubectl exec -it contrail-controller-x6nxv contrail-status
             
       Similarly run for other OpenContrail pods
+      
       
     * Verify that you can login to the Web-UI of both Kubernetes & OpenContrail SDN
     
