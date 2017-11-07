@@ -1,6 +1,6 @@
-## DEPLOYING KUBERNETES WITH OPENCONTRAIL CNI ON AWS
+## Deploying Kubernetes with OpenContrail CNI on AWS
 
-### LAUNCH INSTANCES ON AWS (Manual)
+### LAUNCH INSTANCES (Manual)
 
 NOTE: If you are interested in an automated instatiation of AWS instances, please follow this [play](https://github.com/savithruml/ansible-labs/tree/master/aws)
 
@@ -34,7 +34,7 @@ NOTE: If you are interested in an automated instatiation of AWS instances, pleas
     NOTE: Make sure to launch the instances in the same subnet & remember to select the auto-assign public IP option
 
 
-### PREPARE THE NODES FOR DEPLOYMENT
+### PREPARE NODES FOR DEPLOYMENT
 
     * Run these commands on all nodes. This will enable root access with password
     
@@ -87,7 +87,7 @@ NOTE: If you are interested in an automated instatiation of AWS instances, pleas
             (ansible-node)# ansible-playbook -i hosts site.yml
             
             
- ## VERIFY
+ ### VERIFY
  
      * Verify that OpenContrail pods are running
  
