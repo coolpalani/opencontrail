@@ -61,7 +61,7 @@ NOTE: If you are interested in an automated instatiation of AWS instances, pleas
             (ansible-node)# ssh-copy-id root@<k8s-node>
       
             (ansible-node)# cd /root
-            (ansible-node)# git clone https://github.com/savithuml/opencontrail
+            (ansible-node)# git clone https://github.com/savithruml/opencontrail
       
       
     * Populate hosts file with k8s-master & k8s-node info. Remember to use the private IP address of the instance
