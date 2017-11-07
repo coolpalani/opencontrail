@@ -19,7 +19,7 @@ NOTE: If you are interested in an automated instatiation of AWS instances, pleas
     
         IMAGE:      Ubuntu 16.04 LTS
         FLAVOR:     t2.xlarge
-        DISK:       250 GB
+        DISK:       200 GB
         SEC GRP:    Allow all traffic from everywhere
     
     * K8s-Node Instance    (x1)
@@ -28,7 +28,7 @@ NOTE: If you are interested in an automated instatiation of AWS instances, pleas
     
         IMAGE:      Ubuntu 16.04 LTS
         FLAVOR:     t2.xlarge
-        DISK:       250 GB
+        DISK:       200 GB
         SEC GRP:    Allow all traffic from everywhere
 
     NOTE: Make sure to launch the instances in the same subnet & remember to select the auto-assign public IP option
@@ -82,7 +82,9 @@ NOTE: If you are interested in an automated instatiation of AWS instances, pleas
             (ansible-node)# ansible-playbook -i hosts site.yml
             
             
- ## VERIFY           
+ ## VERIFY
+ 
+     * Verify that OpenContrail pods are running
  
             (k8s-master)# kubectl get pods -n kube-system -o wide | grep contrail
                
@@ -92,3 +94,14 @@ NOTE: If you are interested in an automated instatiation of AWS instances, pleas
                contrail-controller-x6nxv                 1/1       Running             0          15m       172.31.14.25   ip-172-31-14-25
                contrail-kube-manager-xxv2h               1/1       Running             0          15m       172.31.14.25   ip-172-31-14-25
 
+            
+    * Verify that OpenContrail services are all up
+    
+            (k8s-master)# kubectl exec -it contrail-controller-x6nxv contrail-status
+            
+      Similarly run for other OpenContrail pods
+      
+    * Verify that you can login to the Web-UI of both Kubernetes & OpenContrail SDN
+    
+            OpenContrail dashboard: https://<k8s-master-ip>:8143
+            Kubernetes dashboard: http://<k8s-node-ip>:9090
