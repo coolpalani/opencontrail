@@ -22,8 +22,8 @@ data:
     controller_nodes = {{ groups['masters'][0] }}
     analytics_nodes = {{ groups['masters'][0] }}
     analyticsdb_nodes = {{ groups['masters'][0] }}
-    analyticsdb_minimum_diskgb = 15
-    configdb_minimum_diskgb = 10
+    analyticsdb_minimum_diskgb = 25
+    configdb_minimum_diskgb = 25
   agent-config: |-
     [AGENT]
     compile_vrouter_module = True
