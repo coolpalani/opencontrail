@@ -4,12 +4,16 @@
 
     * Ansible Instance  (x1)
     
+      This is the instance from which, we will run our playbooks
+    
         IMAGE:      Ubuntu 16.04 LTS
         FLAVOR:     t2.micro
         DISK:       20 GB
         SEC GRP:    Allow all traffic from everywhere
     
     * K8s-Master Instance   (x1)
+    
+      This is the instance which will host Kubernetes & OpenContrail control-plane services (OpenContrail Controller)
     
         IMAGE:      Ubuntu 16.04 LTS
         FLAVOR:     t2.xlarge
@@ -18,12 +22,14 @@
     
     * K8s-Node Instance    (x1)
     
+      This is the instance which will host Kubernetes & OpenContrail data-plane services (OpenContrail vRouter)
+    
         IMAGE:      Ubuntu 16.04 LTS
         FLAVOR:     t2.xlarge
         DISK:       250 GB
         SEC GRP:    Allow all traffic from everywhere
 
-**NOTE:** Make sure to launch the instances in the same subnet & remember to select the *auto-assign public IP* option
+    NOTE: Make sure to launch the instances in the same subnet & remember to select the auto-assign public IP option
 
 ### PREPARE THE NODES FOR DEPLOYMENT
 
