@@ -1,6 +1,8 @@
-## DEPLOY KUBERNETES WITH OPENCONTRAIL CNI ON AWS
+## DEPLOYING KUBERNETES WITH OPENCONTRAIL CNI ON AWS
 
 ### LAUNCH INSTANCES ON AWS (Manual)
+
+NOTE: If you are interested in an automated instatiation of AWS instances, please follow this play
 
     * Ansible Instance  (x1)
     
