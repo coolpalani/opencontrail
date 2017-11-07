@@ -104,7 +104,7 @@ NOTE: If you are interested in an automated instatiation of AWS instances, pleas
     
             (k8s-master)# kubectl exec -it contrail-controller-x6nxv contrail-status
             
-      Similarly run for other OpenContrail pods
+         Similarly run for other OpenContrail pods
       
       
     * Verify that you can login to the Web-UI of both Kubernetes & OpenContrail SDN
